@@ -1,0 +1,27 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["netflix_cleaned","netflix_genres","netflix_countries"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table netflix_cleaned
+ref table netflix_genres
+ref table netflix_countries
+
+ref cultureInfo en-US
+
+relationship 5d1a8f30-2c47-4b6e-9e21-7a3c5b8d1f01
+	fromColumn: netflix_genres.show_id
+	toColumn: netflix_cleaned.show_id
+
+relationship 5d1a8f30-2c47-4b6e-9e21-7a3c5b8d1f02
+	fromColumn: netflix_countries.show_id
+	toColumn: netflix_cleaned.show_id

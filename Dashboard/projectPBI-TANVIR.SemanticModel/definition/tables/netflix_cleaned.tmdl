@@ -1,0 +1,213 @@
+table netflix_cleaned
+	lineageTag: c3302d77-ed83-4b80-927a-1463918993c2
+
+	column show_id
+		dataType: string
+		lineageTag: 7b25a718-cf8c-473b-bbe9-07e17727cc40
+		summarizeBy: none
+		sourceColumn: show_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column type
+		dataType: string
+		lineageTag: 08e029db-a45d-4248-a2aa-096fb3908751
+		summarizeBy: none
+		sourceColumn: type
+
+		annotation SummarizationSetBy = Automatic
+
+	column title
+		dataType: string
+		lineageTag: 3b74e241-1730-454d-b89f-f72ac30b7f3b
+		summarizeBy: none
+		sourceColumn: title
+
+		annotation SummarizationSetBy = Automatic
+
+	column director_raw
+		dataType: string
+		lineageTag: a9f18947-58a3-41ae-9125-26552b7d1f49
+		summarizeBy: none
+		sourceColumn: director_raw
+
+		annotation SummarizationSetBy = Automatic
+
+	column cast_raw
+		dataType: string
+		lineageTag: a0db9d8c-41b7-4ef5-ae02-38ed540bb840
+		summarizeBy: none
+		sourceColumn: cast_raw
+
+		annotation SummarizationSetBy = Automatic
+
+	column countries_raw
+		dataType: string
+		lineageTag: 29f67a1f-03e8-4258-9a35-75f9289b8e51
+		summarizeBy: none
+		sourceColumn: countries_raw
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_added
+		dataType: dateTime
+		lineageTag: 20e6001e-7b96-4baa-838c-7bbd7b6b4ff9
+		summarizeBy: none
+		sourceColumn: date_added
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column release_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e8395f5-1750-4f0d-820f-905514c64369
+		summarizeBy: none
+		sourceColumn: release_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column rating
+		dataType: string
+		lineageTag: 3ee2226d-f18f-4573-9dac-7225f09df3c4
+		summarizeBy: none
+		sourceColumn: rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column duration
+		dataType: string
+		lineageTag: 7111b26d-304d-404e-8161-9a939e2fe529
+		summarizeBy: none
+		sourceColumn: duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column genres_raw
+		dataType: string
+		lineageTag: 3d639ffa-e6a9-44e9-b2a4-db428fe37a4c
+		summarizeBy: none
+		sourceColumn: genres_raw
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 05a40679-5acc-43a6-b871-dcb3e21b9b4b
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_added
+		dataType: int64
+		formatString: 0
+		lineageTag: 383fa991-358d-4640-916b-7422dd5b5632
+		summarizeBy: none
+		sourceColumn: year_added
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_added
+		dataType: int64
+		formatString: 0
+		lineageTag: b4743521-64ad-4902-ac74-6036d28728b4
+		summarizeBy: none
+		sourceColumn: month_added
+
+		annotation SummarizationSetBy = Automatic
+
+	column years_to_netflix
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ec2e7ae-5501-44da-89fb-9ecb79aacecc
+		summarizeBy: none
+		sourceColumn: years_to_netflix
+
+		annotation SummarizationSetBy = Automatic
+
+	column decade
+		dataType: string
+		lineageTag: 9b725a8e-d782-4379-9c85-22f08deabf4a
+		summarizeBy: none
+		sourceColumn: decade
+
+		annotation SummarizationSetBy = Automatic
+
+	column movie_minutes
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ea3b9af-663a-4ccc-a746-83c4e79ee0a2
+		summarizeBy: none
+		sourceColumn: movie_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column tv_seasons
+		dataType: int64
+		formatString: 0
+		lineageTag: 73ed731a-e7cf-4fef-9846-c0fb667ce9b1
+		summarizeBy: none
+		sourceColumn: tv_seasons
+
+		annotation SummarizationSetBy = Automatic
+
+	column audience
+		dataType: string
+		lineageTag: 198c963a-d558-4ee6-89f8-1761f966977a
+		summarizeBy: none
+		sourceColumn: audience
+
+		annotation SummarizationSetBy = Automatic
+
+	column primary_country
+		dataType: string
+		lineageTag: 7f6c5bcd-70b7-4225-8ea0-326088355e80
+		summarizeBy: none
+		sourceColumn: primary_country
+
+		annotation SummarizationSetBy = Automatic
+
+	column primary_genre
+		dataType: string
+		lineageTag: afe1e09e-b2b6-401d-84a1-d5e21dd57273
+		summarizeBy: none
+		sourceColumn: primary_genre
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name' = IF ( ISBLANK ( netflix_cleaned[month_added] ), BLANK (), FORMAT ( DATE ( 2000, netflix_cleaned[month_added], 1 ), "MMM" ) )
+		dataType: string
+		lineageTag: 2f8a1c6d-1b2e-4f7a-9c3d-6e5b8a0d4c01
+		sortByColumn: month_added
+		summarizeBy: none
+
+	column 'Runtime Band' = SWITCH ( TRUE (), netflix_cleaned[type] <> "Movie", BLANK (), ISBLANK ( netflix_cleaned[movie_minutes] ), "Unknown", netflix_cleaned[movie_minutes] < 60, "00-59", netflix_cleaned[movie_minutes] <= 90, "60-90", netflix_cleaned[movie_minutes] <= 120, "90-120", "120+" )
+		dataType: string
+		lineageTag: 2f8a1c6d-1b2e-4f7a-9c3d-6e5b8a0d4c02
+		summarizeBy: none
+
+	measure 'Movie %' = DIVIDE ( CALCULATE ( COUNTROWS ( netflix_cleaned ), netflix_cleaned[type] = "Movie" ), COUNTROWS ( netflix_cleaned ) )
+		formatString: 0.0%
+		lineageTag: 2f8a1c6d-1b2e-4f7a-9c3d-6e5b8a0d4c11
+
+	measure 'Avg Movie Runtime' = AVERAGE ( netflix_cleaned[movie_minutes] )
+		formatString: 0.0
+		lineageTag: 2f8a1c6d-1b2e-4f7a-9c3d-6e5b8a0d4c12
+
+	partition netflix_cleaned = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\artic\downloads\projbi\NetflixPBI\Data\netflix_cleaned.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Replaced = Table.ReplaceValue(Promoted,"",null,Replacer.ReplaceValue,{"date_added", "year_added", "month_added", "movie_minutes", "tv_seasons", "release_year", "rating"}),
+				    Typed = Table.TransformColumnTypes(Replaced,{{"show_id", type text}, {"type", type text}, {"title", type text}, {"director_raw", type text}, {"cast_raw", type text}, {"countries_raw", type text}, {"date_added", type date}, {"release_year", Int64.Type}, {"rating", type text}, {"duration", type text}, {"genres_raw", type text}, {"description", type text}, {"year_added", Int64.Type}, {"month_added", Int64.Type}, {"years_to_netflix", Int64.Type}, {"decade", type text}, {"movie_minutes", Int64.Type}, {"tv_seasons", Int64.Type}, {"audience", type text}, {"primary_country", type text}, {"primary_genre", type text}}),
+				    Filtered = Table.SelectRows(Typed, each ([type] = "Movie" or [type] = "TV Show"))
+				in
+				    Filtered
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation

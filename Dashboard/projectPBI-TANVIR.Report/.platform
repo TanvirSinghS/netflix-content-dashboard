@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "projectPBI-TANVIR"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a7a092f7-eabc-4723-b007-d8a29beabdc8"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "46d3a5dd5af3ce5a7485",
+  "position": {
+    "x": 16,
+    "y": 88,
+    "z": 200,
+    "height": 336,
+    "width": 608,
+    "tabOrder": 200
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "KEY INSIGHTS",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#FFFFFF",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "1. Movies dominate: 6,131 of 8,807 titles (69.6%); TV shows are 30.4%.",
+                    "textStyle": {
+                      "fontSize": "9.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2. Additions peaked at 2,016 titles in 2019 (1,424 movies + 592 TV), then fell 7% to 1,879 in 2020.",
+                    "textStyle": {
+                      "fontSize": "9.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "3. 2021 is partial - 1,498 titles up to 25 Sep. Read the year chart, never compare 2021 as a full year.",
+                    "textStyle": {
+                      "fontSize": "9.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "4. July (827) and December (813) are the busiest months; February (563) is the quietest.",
+                    "textStyle": {
+                      "fontSize": "9.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "5. US 3,690 country tags, India 1,046, UK 806. Country tags total 10,843 because 1,315 titles carry more than one country.",
+                    "textStyle": {
+                      "fontSize": "9.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "6. International Movies (2,752) and Dramas (2,427) lead genres; 6,787 titles have more than one genre.",
+                    "textStyle": {
+                      "fontSize": "9.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "7. Adults 45.5% and Teens 30.1% of titles. Kids is 17.4% of TV shows vs 7.2% of movies. Movies average 99.6 min (median 98); 74% run 60-120 min.",
+                    "textStyle": {
+                      "fontSize": "9.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

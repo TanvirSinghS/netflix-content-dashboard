@@ -1,0 +1,32 @@
+table netflix_countries
+	lineageTag: 1bfa303c-6690-41eb-9570-0604ee66034d
+
+	column show_id
+		dataType: string
+		lineageTag: 290c4f99-d45c-429f-999d-b56793ceddce
+		summarizeBy: none
+		sourceColumn: show_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Countries
+		dataType: string
+		dataCategory: Country
+		lineageTag: a645ff99-0265-41e4-9842-01f61ac0c7df
+		summarizeBy: none
+		sourceColumn: Countries
+
+		annotation SummarizationSetBy = Automatic
+
+	partition netflix_countries = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\artic\downloads\projbi\NetflixPBI\Data\netflix_countries.csv"),[Delimiter=",", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted,{{"show_id", type text}, {"country", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(Typed,{{"country", "Countries"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
